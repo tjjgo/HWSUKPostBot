@@ -16,9 +16,9 @@ from praw.helpers import flatten_tree
 
 from praw.errors import APIException, ClientException, HTTPException
 
-USER_AGENT = "Archives to archive.is and archive.org (/r/SnapshillBot) v1.3"
-INFO = "/r/SnapshillBot"
-CONTACT = "/message/compose?to=\/r\/SnapshillBot"
+USER_AGENT = "Archives to archive.is and archive.org (/r/HWSUKPostBot) v1.0 (based on snapshill v1.3)"
+INFO = "/r/HWSUKPostBot"
+CONTACT = "/message/compose?to=\/r\/HWSUKPostBot"
 ARCHIVE_ORG_FORMAT = "%Y%m%d%H%M%S"
 MEGALODON_JP_FORMAT = "%Y-%m%d-%H%M-%S"
 DB_FILE = os.environ.get("DATABASE", "snapshill.sqlite3")
@@ -245,14 +245,14 @@ class Notification:
         """
         Replies with a comment containing the archives or if there are too
         many links to fit in a comment, post a submisssion to
-        /r/SnapshillBotEx and then make a comment linking to it.
+        /r/HWSUKPostBot and then make a comment linking to it.
         :return Nothing
         """
         try:
             comment = self._build()
             if len(comment) > 9999:
                 link = self.post.permalink
-                submission = r.submit("SnapshillBotEx", "Archives for " + link,
+                submission = r.submit("HWSUKPostBot", "Archives for " + link,
                                       text=comment[:39999],
                                       raise_captcha_exception=True)
                 submission.add_comment("The original submission can be found "
@@ -453,7 +453,7 @@ if __name__ == "__main__":
     refresh = int(os.environ.get("REFRESH", 1800))
 
     log.info("Starting...")
-    snapshill = Snapshill(username, password, "SnapshillBot", limit)
+    snapshill = Snapshill(username, password, "HWSUKPostBot", limit)
     snapshill.setup()
 
     log.info("Started.")
