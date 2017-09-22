@@ -18,7 +18,7 @@ from praw.errors import APIException, ClientException, HTTPException
 
 USER_AGENT = "Archives to archive.is and archive.org (/r/HWSUKPostBot) v1.0 (based on snapshill v1.3)"
 INFO = "/r/HWSUKPostBot"
-CONTACT = "/message/compose?to=\/r\/HWSUKPostBot"
+CONTACT = "/message/compose?to=\/r\/HardwareSwapUK"
 ARCHIVE_ORG_FORMAT = "%Y%m%d%H%M%S"
 MEGALODON_JP_FORMAT = "%Y-%m%d-%H%M-%S"
 DB_FILE = os.environ.get("DATABASE", "snapshill.sqlite3")
@@ -50,7 +50,7 @@ ignorelist = set()
 
 
 def get_footer():
-    return "*^(I am a bot.) ^\([*Info*]({info}) ^/ ^[*Contact*]({" \
+    return "*^(I am a bot. Please don't reply to me, I don't listen) ^\([*Bot Info*]({info}) ^/ ^[*Need help? Modmail.*]({" \
            "contact}))*".format(info=INFO, contact=CONTACT)
 
 
